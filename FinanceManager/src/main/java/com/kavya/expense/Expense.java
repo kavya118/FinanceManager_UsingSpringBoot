@@ -16,25 +16,30 @@ import javax.validation.constraints.Pattern;
 
 import com.kavya.credit.Credit;
 
+/* Denotes the various categories of Expenses that a user can add, to use in debits*/
+
 @Entity
 @Table(name = "expense")
 public class Expense {
 
 	
-	//primary key
+		//primary key
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		int id;
-		
-		public Expense(String category) {
-		}
 
+		/* The category of the expense */
 		@Column(name="category")
 		@NotNull
 		String category;
 
 		/*@OneToMany(mappedBy = "expense")
 		private Set<Credit> credit;*/
+		
+		/* Added this constructor to resolve the error 'no String-argument constructor/factory method to deserialize from String'
+		value...' DO NOT remove this piece of code*/
+		public Expense(String category) {
+		}
 		
 		public int getId() {
 			return id;

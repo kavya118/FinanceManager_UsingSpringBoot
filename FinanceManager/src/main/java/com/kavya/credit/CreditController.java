@@ -39,12 +39,13 @@ public class CreditController {
 		//credit.setUser_money(credit.user_money);
 		//credit.setExpense();
 		//User user = creditService.a
+		//System.out.println("#####################################################################"+credit.toString()+"%%%%"+credit.getExpense().toString());
+		//System.out.println("#####################################################################"+credit.toString()+"%%%%"+credit.getExpense().toString());
+		//System.out.println("#####################################################################"+credit.toString()+"%%%%"+credit.getExpense().toString());
+
 		credit.setExpense(creditService.getExpense(credit.getExpense().getId()));
-		System.out.println("#####################################################################"+credit.toString()+"%%%%"+credit.getExpense().toString());
 		credit.setUser_money(creditService.getUser(credit.getUser_money().getId()));
-		System.out.println("#####################################################################"+credit.toString()+"%%%%"+credit.getExpense().toString());
 		credit.setWallet(creditService.getWallet(credit.getWallet().getId()));
-		System.out.println("#####################################################################"+credit.toString()+"%%%%"+credit.getExpense().toString());
 		creditService.addCredit(credit);
 	}
 	

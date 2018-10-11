@@ -15,29 +15,35 @@ import javax.validation.constraints.Email;
 import com.kavya.credit.Credit;
 import com.kavya.debit.Debit;
 
+
+/* A Wallet reflects different kinds of applications or methods for users to make payments. For example, 
+ Paytm is one such popular Indian e-commerce payment system and digital wallet. Each Paytm account is 
+ associated with contact number and/or email ID. A user can create an account in the application, and 
+ add money through netbanking, card payments etc. The wallet money can then be used to make various online
+ payments or recharges etc.
+ 
+ The Wallet entity should store the balance, and the history of transactions. */
+
 @Entity
 @Table(name = "wallet")
 public class Wallet {
 
+	
 	//primary key
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	//private List<Credit> credits;
-	
-	
-	public Wallet(String name) {
-		this.name = name;
-	}
-
+	//Phone Number for the wallet account
 	@Column(name="contactnumber")
 	Long contactnumber;
 
+	//Email ID for the wallet account
 	@Column(name="email")
 	@Email
 	String email_id;
 	
+	//Name of the user
 	@Column(name="name")
 	String name;
 	
@@ -47,6 +53,13 @@ public class Wallet {
 	/*@OneToMany(mappedBy = "wallet")
 	private Set<Credit> credit;
 	*/
+	
+	/* Added this constructor to resolve the error 'no String-argument constructor/factory method to deserialize from String'
+value...' DO NOT remove this piece of code*/
+	public Wallet(String name) {
+		this.name = name;
+	}
+
 	public Wallet() {
 	}
 
@@ -82,6 +95,7 @@ public class Wallet {
 		this.name = name;
 	}
 
+/* To add the Debit and Credit to Wallets as an enhancement */ 
 /*	public Set<Debit> getDebit() {
 		return debit;
 	}

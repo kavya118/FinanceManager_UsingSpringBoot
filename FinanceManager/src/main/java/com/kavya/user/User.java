@@ -16,6 +16,8 @@ import javax.validation.constraints.Pattern;
 
 import com.kavya.credit.Credit;
 
+/* Each user involved in different transactiona */
+
 @Entity
 @Table(name = "user_table")
 public class User {
@@ -37,11 +39,6 @@ public class User {
 		
 		@Column(name="contactnumber")
 		Long contactnumber;
-		
-		public User(int id) {
-			super();
-			this.id = id;
-		}
 
 		@Column(name="email_id")
 		@Email
@@ -53,6 +50,10 @@ public class User {
 		public User(String name) {
 		}
 	
+		public User(int id) {
+			super();
+			this.id = id;
+		}
 
 		public int getId() {
 			return id;

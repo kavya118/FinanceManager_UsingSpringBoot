@@ -14,30 +14,33 @@ public class WalletService {
 	
 	//List<User> users=null;
 	
+	/* Fetches all wallets */
 	public List<Wallet> getWallets()
 	{
-		//List<User> users= new ArrayList<>();
 		return walletRepo.findAll();
-		//return courses;
 	}
 	
+	/* Fetches a wallet with given ID */
 	public Wallet getWallet(Integer id)
 	{
 		//return listTopic.stream().filter(t->t.getId().equals(id)).findFirst().get();
 		return walletRepo.findById(id).get();
 	}
 	
+	/* Adds a wallet to the database*/
 	public void addWallet(Wallet wallet)
 	{
 		walletRepo.save(wallet);
 	}
 	
+	/* Deletes a wallet */
 	public void deleteWallet(Integer id)
 	{
 		//listTopic.removeIf(t->t.getId().equals(id));
 		walletRepo.deleteById(id);
 	}
 	
+	/*Updates a given wallet */
 	public void updateWallet(Wallet wallet)
 	{
 		/*for(int i=0;i<listTopic.size();i++)
